@@ -153,7 +153,7 @@
         .btn-primary:hover {
             background-color: #1E7FE0;
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(48, 144, 254, 0.3);
+            box-shadow: 0 5px 15px rgba(41, 141, 255, 0.692);
         }
 
         .menu-toggle {
@@ -272,7 +272,7 @@
         .feature-icon {
             width: 80px;
             height: 80px;
-            background-color: rgba(48, 144, 254, 0.1);
+            background-color: rgba(69, 155, 254, 0.748);
             border-radius: 50%;
             display: flex;
             align-items: center;
