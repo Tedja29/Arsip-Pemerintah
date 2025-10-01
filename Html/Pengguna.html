@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manajemen Pengguna - Arsiparis Setwan Tulungagung</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../Css/Pengguna.css">
+    
+</head>
+<body>
+    <div class="menu-toggle" id="menuToggle">
+        <i class="fas fa-bars"></i>
+    </div>
+
+    <div class="sidebar" id="sidebar">
+        <div class="logo-container">
+            <div class="logo">
+                <i class="fas fa-archive"></i>
+                <div class="logo-text">
+                    <h1>Arsiparis Setwan</h1>
+                    <p>Tulungagung</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="nav-container">
+            <ul class="nav-links">
+                <li>
+                    <a href="Dashboard.html">
+                        <i class="fas fa-home"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="Surat Masuk.html">
+                        <i class="fas fa-envelope"></i>
+                        <span>Surat Masuk</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="Surat_Keluar.html">
+                        <i class="fas fa-paper-plane"></i>
+                        <span>Surat Keluar</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="Arsip.html">
+                        <i class="fas fa-file-alt"></i>
+                        <span>Arsip</span>
+                    </a>
+                </li>
+                <li class="active">
+                    <a href="Pengguna.html">
+                        <i class="fas fa-users"></i>
+                        <span>Pengguna</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="Profil_Pengaturan.html">
+                        <i class="fas fa-cog"></i>
+                        <span>Pengaturan</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="Laporan.html">
+                        <i class="fas fa-chart-bar"></i>
+                        <span>Laporan</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="nav-footer">
+            <p>Arsiparis Setwan Tulungagung © 2025</p>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="header">
+            <div class="header-left">
+                <h2>Manajemen Pengguna</h2>
+                <p>Kelola pengguna sistem arsip digital</p>
+            </div>
+            <div class="header-right">
+                <div class="search-container">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Cari pengguna...">
+                </div>
+                <div class="user-info">
+                    <div class="notifications">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">3</span>
+                    </div>
+                    <div class="user-profile">
+                        <div class="user-avatar">
+                            <span>AD</span>
+                        </div>
+                        <div class="user-details">
+                            <div class="user-name">Admin Dashboard</div>
+                            <div class="user-role">Super Admin</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="page-header">
+                <div>
+                    <h1 class="page-title">Manajemen Pengguna</h1>
+                    <p class="page-description">Kelola semua pengguna yang memiliki akses ke sistem arsip digital Setwan Tulungagung</p>
+                </div>
+                <button class="btn" id="addUserBtn">
+                    <i class="fas fa-plus"></i> Tambah Pengguna
+                </button>
+            </div>
+
+            <div class="dashboard-section">
+                <div class="user-management-header">
+                    <h3 class="section-title">Daftar Pengguna</h3>
+                    <div class="user-filters">
+                        <select class="filter-select">
+                            <option>Semua Peran</option>
+                            <option>Administrator</option>
+                            <option>Arsiparis</option>
+                            <option>Operator</option>
+                        </select>
+                        <select class="filter-select">
+                            <option>Semua Status</option>
+                            <option>Aktif</option>
+                            <option>Nonaktif</option>
+                            <option>Tertunda</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="users-grid">
+                    <div class="user-card">
+                        <div class="user-card-header">
+                            <div class="user-card-avatar">
+                                <span>AD</span>
+                            </div>
+                            <div class="user-card-info">
+                                <div class="user-card-name">Admin Dashboard</div>
+                                <div class="user-card-role">Super Administrator</div>
+                                <div class="user-card-email">admin@setwan.tulungagung.go.id</div>
+                            </div>
+                        </div>
+                        <div class="user-card-stats">
+                            <div class="user-stat">
+                                <div class="user-stat-value">124</div>
+                                <div class="user-stat-label">Arsip</div>
+                            </div>
+                            <div class="user-stat">
+                                <div class="user-stat-value">56</div>
+                                <div class="user-stat-label">Aktivitas</div>
+                            </div>
+                            <div class="user-stat">
+                                <div class="user-stat-value">98%</div>
+                                <div class="user-stat-label">Aktif</div>
+                            </div>
+                        </div>
+                        <div class="user-card-actions">
+                            <div class="user-card-btn edit">
+                                <i class="fas fa-edit"></i> Edit
+                            </div>
+                            <div class="user-card-btn delete">
+                                <i class="fas fa-trash"></i> Hapus
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="user-card">
+                        <div class="user-card-header">
+                            <div class="user-card-avatar">
+                                <span>BS</span>
+                            </div>
+                            <div class="user-card-info">
+                                <div class="user-card-name">Budi Santoso</div>
+                                <div class="user-card-role">Arsiparis</div>
+                                <div class="user-card-email">budi.santoso@setwan.tulungagung.go.id</div>
+                            </div>
+                        </div>
+                        <div class="user-card-stats">
+                            <div class="user-stat">
+                                <div class="user-stat-value">89</div>
+                                <div class="user-stat-label">Arsip</div>
+                            </div>
+                            <div class="user-stat">
+                                <div class="user-stat-value">42</div>
+                                <div class="user-stat-label">Aktivitas</div>
+                            </div>
+                            <div class="user-stat">
+                                <div class="user-stat-value">85%</div>
+                                <div class="user-stat-label">Aktif</div>
+                            </div>
+                        </div>
+                        <div class="user-card-actions">
+                            <div class="user-card-btn edit">
+                                <i class="fas fa-edit"></i> Edit
+                            </div>
+                            <div class="user-card-btn delete">
+                                <i class="fas fa-trash"></i> Hapus
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="user-card">
+                        <div class="user-card-header">
+                            <div class="user-card-avatar">
+                                <span>SW</span>
+                            </div>
+                            <div class="user-card-info">
+                                <div class="user-card-name">Sari Wulandari</div>
+                                <div class="user-card-role">Operator</div>
+                                <div class="user-card-email">sari.wulandari@setwan.tulungagung.go.id</div>
+                            </div>
+                        </div>
+                        <div class="user-card-stats">
+                            <div class="user-stat">
+                                <div class="user-stat-value">67</div>
+                                <div class="user-stat-label">Arsip</div>
+                            </div>
+                            <div class="user-stat">
+                                <div class="user-stat-value">31</div>
+                                <div class="user-stat-label">Aktivitas</div>
+                            </div>
+                            <div class="user-stat">
+                                <div class="user-stat-value">92%</div>
+                                <div class="user-stat-label">Aktif</div>
+                            </div>
+                        </div>
+                        <div class="user-card-actions">
+                            <div class="user-card-btn edit">
+                                <i class="fas fa-edit"></i> Edit
+                            </div>
+                            <div class="user-card-btn delete">
+                                <i class="fas fa-trash"></i> Hapus
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dashboard-section">
+                <div class="section-header">
+                    <h3 class="section-title">Tabel Pengguna</h3>
+                    <a href="#" class="view-all">Ekspor Data <i class="fas fa-download"></i></a>
+                </div>
+                
+                <table class="users-table">
+                    <thead>
+                        <tr>
+                            <th>Nama Pengguna</th>
+                            <th>Email</th>
+                            <th>Peran</th>
+                            <th>Tanggal Bergabung</th>
+                            <th>Status</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div style="display: flex; align-items: center;">
+                                    <div style="width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(135deg, var(--primary), #1E7FE0); display: flex; align-items: center; justify-content: center; color: white; font-weight: 600; margin-right: 10px;">AD</div>
+                                    <div>
+                                        <div style="font-weight: 500;">Admin Dashboard</div>
+                                        <div style="font-size: 0.8rem; color: var(--neutral);">Super Admin</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>admin@setwan.tulungagung.go.id</td>
+                            <td>Administrator</td>
+                            <td>15 Jan 2023</td>
+                            <td><span class="user-status status-active">Aktif</span></td>
+                            <td>
+                                <div class="table-actions">
+                                    <div class="table-action-btn edit">
+                                        <i class="fas fa-edit"></i>
+                                    </div>
+                                    <div class="table-action-btn delete">
+                                        <i class="fas fa-trash"></i>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div style="display: flex; align-items: center;">
+                                    <div style="width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(135deg, #48BB78, #38A169); display: flex; align-items: center; justify-content: center; color: white; font-weight: 600; margin-right: 10px;">BS</div>
+                                    <div>
+                                        <div style="font-weight: 500;">Budi Santoso</div>
+                                        <div style="font-size: 0.8rem; color: var(--neutral);">Arsiparis</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>budi.santoso@setwan.tulungagung.go.id</td>
+                            <td>Arsiparis</td>
+                            <td>20 Mar 2023</td>
+                            <td><span class="user-status status-active">Aktif</span></td>
+                            <td>
+                                <div class="table-actions">
+                                    <div class="table-action-btn edit">
+                                        <i class="fas fa-edit"></i>
+                                    </div>
+                                    <div class="table-action-btn delete">
+                                        <i class="fas fa-trash"></i>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div style="display: flex; align-items: center;">
+                                    <div style="width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(135deg, #ECC94B, #D69E2E); display: flex; align-items: center; justify-content: center; color: white; font-weight: 600; margin-right: 10px;">SW</div>
+                                    <div>
+                                        <div style="font-weight: 500;">Sari Wulandari</div>
+                                        <div style="font-size: 0.8rem; color: var(--neutral);">Operator</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>sari.wulandari@setwan.tulungagung.go.id</td>
+                            <td>Operator</td>
+                            <td>5 Apr 2023</td>
+                            <td><span class="user-status status-pending">Tertunda</span></td>
+                            <td>
+                                <div class="table-actions">
+                                    <div class="table-action-btn edit">
+                                        <i class="fas fa-edit"></i>
+                                    </div>
+                                    <div class="table-action-btn delete">
+                                        <i class="fas fa-trash"></i>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div style="display: flex; align-items: center;">
+                                    <div style="width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(135deg, #F56565, #E53E3E); display: flex; align-items: center; justify-content: center; color: white; font-weight: 600; margin-right: 10px;">AR</div>
+                                    <div>
+                                        <div style="font-weight: 500;">Ahmad Rizki</div>
+                                        <div style="font-size: 0.8rem; color: var(--neutral);">Operator</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>ahmad.rizki@setwan.tulungagung.go.id</td>
+                            <td>Operator</td>
+                            <td>12 Jun 2023</td>
+                            <td><span class="user-status status-inactive">Nonaktif</span></td>
+                            <td>
+                                <div class="table-actions">
+                                    <div class="table-action-btn edit">
+                                        <i class="fas fa-edit"></i>
+                                    </div>
+                                    <div class="table-action-btn delete">
+                                        <i class="fas fa-trash"></i>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="footer-content">
+                <div class="footer-links">
+                    <a href="#">About Us</a>
+                    <a href="#">Help And FAQ</a>
+                    <a href="#">Contact Us</a>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms And Conditions</a>
+                </div>
+                <div class="copyright">
+                    All Rights Reserved | © Arsiparis_setwan - 2025
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Tambah/Edit Pengguna -->
+    <div class="modal" id="userModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Tambah Pengguna Baru</h3>
+                <button class="modal-close" id="closeModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="userForm">
+                    <div class="form-group">
+                        <label class="form-label" for="userName">Nama Lengkap</label>
+                        <input type="text" class="form-input" id="userName" placeholder="Masukkan nama lengkap">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="userEmail">Email</label>
+                        <input type="email" class="form-input" id="userEmail" placeholder="Masukkan alamat email">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="userRole">Peran</label>
+                        <select class="form-select" id="userRole">
+                            <option value="">Pilih peran pengguna</option>
+                            <option value="administrator">Administrator</option>
+                            <option value="arsiparis">Arsiparis</option>
+                            <option value="operator">Operator</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="userStatus">Status</label>
+                        <select class="form-select" id="userStatus">
+                            <option value="active">Aktif</option>
+                            <option value="inactive">Nonaktif</option>
+                            <option value="pending">Tertunda</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="userPassword">Password</label>
+                        <input type="password" class="form-input" id="userPassword" placeholder="Masukkan password">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="cancelBtn">Batal</button>
+                <button class="btn" id="saveUserBtn">Simpan Pengguna</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Toggle sidebar on mobile
+        document.getElementById('menuToggle').addEventListener('click', function() {
+            document.getElementById('sidebar').classList.toggle('active');
+        });
+
+        // Modal functionality
+        const addUserBtn = document.getElementById('addUserBtn');
+        const userModal = document.getElementById('userModal');
+        const closeModal = document.getElementById('closeModal');
+        const cancelBtn = document.getElementById('cancelBtn');
+        const saveUserBtn = document.getElementById('saveUserBtn');
+
+        addUserBtn.addEventListener('click', function() {
+            userModal.classList.add('active');
+        });
+
+        closeModal.addEventListener('click', function() {
+            userModal.classList.remove('active');
+        });
+
+        cancelBtn.addEventListener('click', function() {
+            userModal.classList.remove('active');
+        });
+
+        saveUserBtn.addEventListener('click', function() {
+            // In a real application, you would save the user data here
+            alert('Pengguna berhasil ditambahkan!');
+            userModal.classList.remove('active');
+            document.getElementById('userForm').reset();
+        });
+
+        // Close modal when clicking outside
+        window.addEventListener('click', function(event) {
+            if (event.target === userModal) {
+                userModal.classList.remove('active');
+            }
+        });
+
+        // Edit and delete buttons functionality
+        document.querySelectorAll('.user-card-btn.edit, .table-action-btn.edit').forEach(button => {
+            button.addEventListener('click', function() {
+                userModal.classList.add('active');
+                document.querySelector('.modal-title').textContent = 'Edit Pengguna';
+                // In a real application, you would populate the form with user data
+            });
+        });
+
+        document.querySelectorAll('.user-card-btn.delete, .table-action-btn.delete').forEach(button => {
+            button.addEventListener('click', function() {
+                if (confirm('Apakah Anda yakin ingin menghapus pengguna ini?')) {
+                    // In a real application, you would delete the user here
+                    alert('Pengguna berhasil dihapus!');
+                }
+            });
+        });
+
+        // Search functionality
+        const searchInput = document.querySelector('.search-container input');
+        searchInput.addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase();
+            const userCards = document.querySelectorAll('.user-card');
+            const tableRows = document.querySelectorAll('.users-table tbody tr');
+            
+            userCards.forEach(card => {
+                const userName = card.querySelector('.user-card-name').textContent.toLowerCase();
+                if (userName.includes(searchTerm)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+            
+            tableRows.forEach(row => {
+                const userName = row.cells[0].textContent.toLowerCase();
+                if (userName.includes(searchTerm)) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

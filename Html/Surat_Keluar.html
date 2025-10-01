@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surat Keluar - Arsiparis Setwan Tulungagung</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../Css/Surat_Keluar.css">
+</head>
+<body>
+    <div class="menu-toggle" id="menuToggle">
+        <i class="fas fa-bars"></i>
+    </div>
+
+    <div class="sidebar" id="sidebar">
+        <div class="logo-container">
+            <div class="logo">
+                <i class="fas fa-archive"></i>
+                <div class="logo-text">
+                    <h1>Arsiparis Setwan</h1>
+                    <p>Tulungagung</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="nav-container">
+            <ul class="nav-links">
+                <li>
+                    <a href="dashboard.html">
+                        <i class="fas fa-home"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="surat masuk.html">
+                        <i class="fas fa-envelope"></i>
+                        <span>Surat Masuk</span>
+                    </a>
+                </li>
+                <li class="active">
+                    <a href="Surat_Keluar.html">
+                        <i class="fas fa-paper-plane"></i>
+                        <span>Surat Keluar</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="Arsip.html">
+                        <i class="fas fa-file-alt"></i>
+                        <span>Arsip</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="Profil_Pengaturan.html">
+                        <i class="fas fa-cog"></i>
+                        <span>Pengaturan</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="Laporan.html">
+                        <i class="fas fa-chart-bar"></i>
+                        <span>Laporan</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="nav-footer">
+            <p>Arsiparis Setwan Tulungagung © 2025</p>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="header">
+            <div class="header-left">
+                <h2>Surat Keluar</h2>
+                <p>Kelola surat keluar dengan mudah</p>
+            </div>
+            <div class="header-right">
+                <div class="search-container">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Cari surat, tujuan, atau perihal...">
+                </div>
+                <div class="user-info">
+                    <div class="user-profile">
+                        <div class="user-avatar">
+                            <span>AD</span>
+                        </div>
+                        <div class="user-details">
+                            <div class="user-name">Admin Dashboard</div>
+                            <div class="user-role">Super Admin</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="page-header">
+                <div>
+                    <h1 class="page-title">Manajemen Surat Keluar</h1>
+                    <p class="page-description">Kelola semua surat keluar di satu tempat</p>
+                </div>
+                <div style="display: flex; gap: 15px;">
+                    <button class="btn btn-secondary" onclick="startFolderScan()">
+                        <i class="fas fa-scanner"></i> Scan Surat
+                    </button>
+                    <button class="btn" onclick="openModal('addSuratModal')">
+                        <i class="fas fa-plus"></i> Tambah Surat
+                    </button>
+                </div>
+            </div>
+
+            <!-- Scan Folder Section -->
+            <div class="scan-folder-container" id="scanContainer" style="display: none;">
+                <div class="scan-folder-header">
+                    <h3 class="scan-folder-title">Scan Surat Otomatis</h3>
+                    <button class="btn btn-secondary btn-small" onclick="closeScanContainer()">
+                        <i class="fas fa-times"></i> Tutup
+                    </button>
+                </div>
+                <div class="scan-folder-content">
+                    <div class="scan-folder-dropzone" id="scanFolderDropzone">
+                        <div class="scan-folder-icon">
+                            <i class="fas fa-folder-open"></i>
+                        </div>
+                        <div class="scan-folder-text">
+                            Taruh folder atau file surat di sini untuk di-scan
+                        </div>
+                        <div class="scan-folder-subtext">
+                            Atau klik untuk memilih folder/file
+                        </div>
+                        <input type="file" id="folderInput" webkitdirectory multiple style="display: none;">
+                    </div>
+                    
+                    <div class="scan-progress" id="scanProgress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progressFill"></div>
+                        </div>
+                        <div class="progress-text" id="progressText">Mengidentifikasi dokumen...</div>
+                    </div>
+                    
+                    <div class="scan-results" id="scanResults">
+                        <h4>Hasil Scan</h4>
+                        <div id="scanResultsList">
+                            <!-- Results will be populated here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tabs-container">
+                <div class="tab active" data-tab="surat-keluar">Surat Keluar</div>
+            </div>
+
+            <!-- Surat Masuk Tab Content -->
+            <div class="tab-content" id="surat-masuk">
+                <!-- Konten surat masuk di sini -->
+            </div>
+
+            <!-- Surat Keluar Tab Content -->
+            <div class="tab-content active" id="surat-keluar">
+                <div class="filter-section">
+                    <h3 class="filter-title">Filter Surat Keluar</h3>
+                    <div class="filter-form">
+                        <div class="form-group">
+                            <label for="tanggal-keluar">Tanggal Keluar</label>
+                            <input type="date" id="tanggal-keluar" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="tujuan">Tujuan</label>
+                            <select id="tujuan" class="form-control">
+                                <option value="">Semua Tujuan</option>
+                                <option value="dinas-pendidikan">Dinas Pendidikan</option>
+                                <option value="dinas-kesehatan">Dinas Kesehatan</option>
+                                <option value="dinas-pupr">Dinas PUPR</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="status-keluar">Status</label>
+                            <select id="status-keluar" class="form-control">
+                                <option value="">Semua Status</option>
+                                <option value="draft">Draft</option>
+                                <option value="dikirim">Terkirim</option>
+                                <option value="diterima">Diterima</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>&nbsp;</label>
+                            <button class="btn" style="margin-top: 5px;">
+                                <i class="fas fa-filter"></i> Terapkan Filter
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="table-section">
+                    <div class="table-header">
+                        <h3 class="table-title">Daftar Surat Keluar</h3>
+                        <div class="table-actions">
+                            <button class="btn btn-outline">
+                                <i class="fas fa-download"></i> Ekspor
+                            </button>
+                            <button class="btn btn-outline">
+                                <i class="fas fa-print"></i> Cetak
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="table-container">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>No. Surat</th>
+                                    <th>Tujuan</th>
+                                    <th>Perihal</th>
+                                    <th>Tanggal Keluar</th>
+                                    <th>Status</th>
+                                    <th>Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>001/SK/Setwan/VI/2025</td>
+                                    <td>Dinas Pendidikan</td>
+                                    <td>Undangan Rapat Koordinasi</td>
+                                    <td>15 Juni 2025</td>
+                                    <td><span class="status-badge status-sent">Terkirim</span></td>
+                                    <td>
+                                        <div class="action-buttons">
+                                            <button class="action-btn" title="Lihat Detail">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                            <button class="action-btn" title="Edit">
+                                                <i class="fas fa-edit"></i>
+                                            </button>
+                                            <button class="action-btn" title="Hapus">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>002/SK/Setwan/VI/2025</td>
+                                    <td>Dinas Kesehatan</td>
+                                    <td>Surat Edaran Vaksinasi</td>
+                                    <td>16 Juni 2025</td>
+                                    <td><span class="status-badge status-received">Diterima</span></td>
+                                    <td>
+                                        <div class="action-buttons">
+                                            <button class="action-btn" title="Lihat Detail">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                            <button class="action-btn" title="Edit">
+                                                <i class="fas fa-edit"></i>
+                                            </button>
+                                            <button class="action-btn" title="Hapus">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>003/SK/Setwan/VI/2025</td>
+                                    <td>Dinas PUPR</td>
+                                    <td>Permohonan Data Infrastruktur</td>
+                                    <td>17 Juni 2025</td>
+                                    <td><span class="status-badge status-draft">Draft</span></td>
+                                    <td>
+                                        <div class="action-buttons">
+                                            <button class="action-btn" title="Lihat Detail">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                            <button class="action-btn" title="Edit">
+                                                <i class="fas fa-edit"></i>
+                                            </button>
+                                            <button class="action-btn" title="Hapus">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>004/SK/Setwan/VI/2025</td>
+                                    <td>Bagian Umum</td>
+                                    <td>Pengumuman Libur Nasional</td>
+                                    <td>18 Juni 2025</td>
+                                    <td><span class="status-badge status-sent">Terkirim</span></td>
+                                    <td>
+                                        <div class="action-buttons">
+                                            <button class="action-btn" title="Lihat Detail">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                            <button class="action-btn" title="Edit">
+                                                <i class="fas fa-edit"></i>
+                                            </button>
+                                            <button class="action-btn" title="Hapus">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>005/SK/Setwan/VI/2025</td>
+                                    <td>Dinas Sosial</td>
+                                    <td>Permintaan Data Penerima Bantuan</td>
+                                    <td>19 Juni 2025</td>
+                                    <td><span class="status-badge status-received">Diterima</span></td>
+                                    <td>
+                                        <div class="action-buttons">
+                                            <button class="action-btn" title="Lihat Detail">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                            <button class="action-btn" title="Edit">
+                                                <i class="fas fa-edit"></i>
+                                            </button>
+                                            <button class="action-btn" title="Hapus">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div class="pagination">
+                        <div class="pagination-info">
+                            Menampilkan 1-5 dari 15 surat keluar
+                        </div>
+                        <div class="pagination-controls">
+                            <button class="pagination-btn">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button class="pagination-btn active">1</button>
+                            <button class="pagination-btn">2</button>
+                            <button class="pagination-btn">3</button>
+                            <button class="pagination-btn">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="footer-content">
+                <div class="footer-links">
+                    <a href="#">Tentang Kami</a>
+                    <a href="#">Kebijakan Privasi</a>
+                    <a href="#">Syarat & Ketentuan</a>
+                    <a href="#">Bantuan</a>
+                    <a href="#">Kontak</a>
+                </div>
+                <div class="copyright">
+                    &copy; 2025 Arsiparis Setwan Tulungagung. Semua hak dilindungi.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Tambah Surat Keluar -->
+    <div class="modal" id="addSuratModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Tambah Surat Keluar</h3>
+                <button class="close-btn" onclick="closeModal('addSuratModal')">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <form id="addSuratForm">
+                <div class="form-group">
+                    <label for="noSurat">Nomor Surat</label>
+                    <input type="text" id="noSurat" class="form-control" placeholder="Masukkan nomor surat">
+                </div>
+                <div class="form-group">
+                    <label for="tujuanSurat">Tujuan</label>
+                    <input type="text" id="tujuanSurat" class="form-control" placeholder="Masukkan tujuan surat">
+                </div>
+                <div class="form-group">
+                    <label for="perihal">Perihal</label>
+                    <input type="text" id="perihal" class="form-control" placeholder="Masukkan perihal surat">
+                </div>
+                <div class="form-group">
+                    <label for="tanggalKeluar">Tanggal Keluar</label>
+                    <input type="date" id="tanggalKeluar" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="statusSurat">Status</label>
+                    <select id="statusSurat" class="form-control">
+                        <option value="draft">Draft</option>
+                        <option value="dikirim">Terkirim</option>
+                        <option value="diterima">Diterima</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="keterangan">Keterangan</label>
+                    <textarea id="keterangan" class="form-control" placeholder="Masukkan keterangan tambahan"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Unggah File</label>
+                    <div class="file-upload-container">
+                        <input type="file" id="fileUpload">
+                        <label for="fileUpload" class="file-upload-label">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                            <span>Klik untuk mengunggah file atau tarik file ke sini</span>
+                        </label>
+                    </div>
+                </div>
+                <div style="display: flex; justify-content: flex-end; gap: 15px; margin-top: 20px;">
+                    <button type="button" class="btn btn-secondary" onclick="closeModal('addSuratModal')">Batal</button>
+                    <button type="submit" class="btn">Simpan Surat</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="../Js/Surat_Masuk.js"></script>
+</body>
+</html>

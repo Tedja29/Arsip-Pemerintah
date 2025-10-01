@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Arsiparis Setwan Tulungagung</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../Css/Dashboard.css">
+</head>
+<body>
+    <div class="menu-toggle" id="menuToggle">
+        <i class="fas fa-bars"></i>
+    </div>
+
+    <div class="sidebar" id="sidebar">
+        <div class="logo-container">
+            <div class="logo">
+                <i class="fas fa-archive"></i>
+                <div class="logo-text">
+                    <h1>Arsiparis Setwan</h1>
+                    <p>Tulungagung</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="nav-container">
+            <ul class="nav-links">
+                <li class="active">
+                    <a href="Dashboard.html">
+                        <i class="fas fa-home"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="Surat Masuk.html">
+                        <i class="fas fa-envelope"></i>
+                        <span>Surat Masuk</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="Surat_Keluar.html">
+                        <i class="fas fa-paper-plane"></i>
+                        <span>Surat Keluar</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="Arsip.html">
+                        <i class="fas fa-file-alt"></i>
+                        <span>Arsip</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="Pengaturan.html">
+                        <i class="fas fa-cog"></i>
+                        <span>Pengaturan</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="Laporan.html">
+                        <i class="fas fa-chart-bar"></i>
+                        <span>Laporan</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="nav-footer">
+            <p>Arsiparis Setwan Tulungagung © 2025</p>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="header">
+            <div class="header-left">
+                <h2>Dashboard Arsiparis</h2>
+                <p>Selamat datang di sistem manajemen arsip digital</p>
+            </div>
+            <div class="header-right">
+                <div class="search-container">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Cari arsip, dokumen, atau informasi...">
+                </div>
+                <div class="user-info">
+                    <div class="user-profile dropdown">
+                    <div class="user-avatar">
+                        <span>AD</span>
+                    </div>
+                    <div class="user-details user-info-toggle">
+                        <div class="user-name">Admin Dashboard</div>
+                        <div class="user-role">Super Admin</div>
+                        <i class="fas fa-caret-down dropdown-icon"></i>
+                    </div>
+                    <ul class="dropdown-menu">
+                        <li><a href="Profil_Pengaturan.html"><i class="fas fa-user"></i> Profile</a></li>
+                        <li><a href="Profil_Pengaturan.html"><i class="fas fa-cog"></i> Pengaturan</a></li>
+                        <li><a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                    </ul>
+                </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="welcome-banner">
+                <div class="welcome-text">
+                    <h1>Selamat Datang, Admin!</h1>
+                    <p>Kelola arsip digital dengan mudah melalui fitur Surat Masuk dan Surat Keluar. Pantau progres terbaru dan statistik arsip di bawah ini.</p>
+                    <button class="btn" id="addArchiveBtn">
+                        <i class="fas fa-plus"></i> Arsip Baru
+                    </button>
+                </div>
+                <div class="icon">
+                    <i class="fas fa-book-open"></i>
+                </div>
+            </div>
+
+            <div class="dashboard-section">
+                <div class="section-header">
+                    <h3 class="section-title">Ringkasan Arsip</h3>
+                    <a href="#" class="view-all">Lihat Semua <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="dashboard-cards">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Total Arsip</h3>
+                            <div class="card-icon">
+                                <i class="fas fa-file"></i>
+                            </div>
+                        </div>
+                        <div class="card-value">0</div>
+                        <p class="card-desc">Jumlah total arsip yang tersimpan dalam sistem</p>
+                        <div class="progress-container">
+                            <div class="progress-info">
+                                <span class="progress-label">Peningkatan bulan lalu</span>
+                                <span class="progress-percentage">+0%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 65%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Arsip Diakses</h3>
+                            <div class="card-icon">
+                                <i class="fas fa-download"></i>
+                            </div>
+                        </div>
+                        <div class="card-value">0</div>
+                        <p class="card-desc">Arsip yang diakses dalam 30 hari terakhir</p>
+                        <div class="progress-container">
+                            <div class="progress-info">
+                                <span class="progress-label">Peningkatan bulan lalu</span>
+                                <span class="progress-percentage">+0%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 40%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Pengguna Aktif</h3>
+                            <div class="card-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                        </div>
+                        <div class="card-value">0</div>
+                        <p class="card-desc">Pengguna yang aktif dalam seminggu terakhir</p>
+                        <div class="progress-container">
+                            <div class="progress-info">
+                                <span class="progress-label">Peningkatan bulan lalu</span>
+                                <span class="progress-percentage">+0%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 75%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dashboard-section">
+                <div class="section-header">
+                    <h3 class="section-title">Statistik Arsip</h3>
+                    <a href="#" class="view-all">Lihat Detail <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="stats-container">
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <h3 class="stat-title">Aktivitas Arsip Terbaru</h3>
+                            <i class="fas fa-history stat-icon"></i>
+                        </div>
+                        <div class="chart-placeholder">
+                            Grafik Aktivitas Arsip Terbaru
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <h3 class="stat-title">Jenis Arsip</h3>
+                            <i class="fas fa-chart-pie stat-icon"></i>
+                        </div>
+                        <div class="chart-placeholder">
+                            Grafik Distribusi Jenis Arsip
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dashboard-section">
+                <div class="section-header">
+                    <h3 class="section-title">Arsip Terbaru</h3>
+                    <a href="#" class="view-all">Lihat Semua <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="recent-table">
+                    <table style="width: 100%; border-collapse: collapse;">
+                        <thead>
+                            <tr style="border-bottom: 1px solid var(--border-color);">
+                                <th style="text-align: left; padding: 15px 10px;">Nama Arsip</th>
+                                <th style="text-align: left; padding: 15px 10px;">Jenis</th>
+                                <th style="text-align: left; padding: 15px 10px;">Tanggal</th>
+                                <th style="text-align: left; padding: 15px 10px;">Status</th>
+                                <th style="text-align: center; padding: 15px 10px;">Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="border-bottom: 1px solid var(--border-color);">
+                                <td style="padding: 15px 10px;">Laporan Keuangan 2023</td>
+                                <td style="padding: 15px 10px;">Keuangan</td>
+                                <td style="padding: 15px 10px;">12 Sep 2023</td>
+                                <td style="padding: 15px 10px;"><span style="background: var(--success); color: white; padding: 5px 10px; border-radius: 20px; font-size: 0.8rem;">Aktif</span></td>
+                                <td style="padding: 15px 10px; text-align: center;">
+                                    <i class="fas fa-eye" style="color: var(--primary); cursor: pointer;"></i>
+                                </td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid var(--border-color);">
+                                <td style="padding: 15px 10px;">Notulensi Rapat</td>
+                                <td style="padding: 15px 10px;">Administrasi</td>
+                                <td style="padding: 15px 10px;">10 Sep 2023</td>
+                                <td style="padding: 15px 10px;"><span style="background: var(--warning); color: white; padding: 5px 10px; border-radius: 20px; font-size: 0.8rem;">Draft</span></td>
+                                <td style="padding: 15px 10px; text-align: center;">
+                                    <i class="fas fa-eye" style="color: var(--primary); cursor: pointer;"></i>
+                                </td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid var(--border-color);">
+                                <td style="padding: 15px 10px;">Proposal Kegiatan</td>
+                                <td style="padding: 15px 10px;">Kegiatan</td>
+                                <td style="padding: 15px 10px;">8 Sep 2023</td>
+                                <td style="padding: 15px 10px;"><span style="background: var(--success); color: white; padding: 5px 10px; border-radius: 20px; font-size: 0.8rem;">Aktif</span></td>
+                                <td style="padding: 15px 10px; text-align: center;">
+                                    <i class="fas fa-eye" style="color: var(--primary); cursor: pointer;"></i>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="footer-content">
+                <div class="footer-links">
+                    <a href="#">About Us</a>
+                    <a href="#">Help And FAQ</a>
+                    <a href="#">Contact Us</a>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+                <div class="copyright">
+                    &copy; 2025 Arsiparis Setwan Tulungagung. All rights reserved.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Tambah Arsip Baru -->
+    <div class="modal" id="addArchiveModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Tambah Arsip Baru</h3>
+                <button class="close-btn" onclick="closeModal('addArchiveModal')">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <form id="addArchiveForm">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="suratDari">Surat Dari</label>
+                        <input type="text" id="suratDari" required placeholder="Enter Surat Dari">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="tanggalSurat">Tanggal Surat</label>
+                        <input type="date" id="tanggalSurat" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="nomorSurat">Nomor Surat</label>
+                        <input type="text" id="nomorSurat" required placeholder="Enter Nomor Surat">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="perihal">Perihal</label>
+                        <input type="text" id="perihal" required placeholder="Enter Perihal">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="diterimaTanggal">Diterima Tanggal</label>
+                        <input type="date" id="diterimaTanggal" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="kepada">Kepada</label>
+                        <select id="kepada" required>
+                            <option value="">Select a value ...</option>
+                            <option value="sekretaris">Sekretaris</option>
+                            <option value="kabag">Kepala Bagian</option>
+                            <option value="kasubag">Kepala Sub Bagian</option>
+                            <option value="staff">Staff</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="nomorAgenda">Nomor Agenda</label>
+                        <input type="text" id="nomorAgenda" required placeholder="Enter Nomor Agenda">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="fileSurat">File Surat</label>
+                        <div class="file-upload-container">
+                            <input type="file" id="fileSurat" required accept=".pdf,.doc,.docx,.xls,.xlsx,.ppt,.pptx,.jpg,.png">
+                            <div class="file-upload-label">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                <span>Choose files or drag and drop files to upload</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="disposisi">Disposisi</label>
+                        <select id="disposisi" required>
+                            <option value="">Select a value ...</option>
+                            <option value="tindak-lanjut">Tindak Lanjut</option>
+                            <option value="arsip">Arsip</option>
+                            <option value="koodinasi">Koordinasi</option>
+                            <option value="pelaksanaan">Pelaksanaan</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="fileDisposisi">File Disposisi</label>
+                        <div class="file-upload-container">
+                            <input type="file" id="fileDisposisi" accept=".pdf,.doc,.docx,.xls,.xlsx,.ppt,.pptx,.jpg,.png">
+                            <div class="file-upload-label">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                <span>Choose files or drag and drop files to upload</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div style="display: flex; gap: 15px; justify-content: flex-end; margin-top: 25px;">
+                        <button type="button" class="btn btn-secondary" onclick="closeModal('addArchiveModal')">
+                            Batal
+                        </button>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-save"></i> Simpan Arsip
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="../Js/Dashboard.js"></script>
+</body>
+</html>

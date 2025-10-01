@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Arsiparis Setwan Tulungagung</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../Css/Login_Register.css">
+</head>
+<body>
+    <div class="auth-container" id="authContainer">
+        <div class="auth-left">
+            <div class="floating-shapes">
+                <div class="shape"></div>
+                <div class="shape"></div>
+                <div class="shape"></div>
+            </div>
+            <div class="auth-logo">
+                <i class="fas fa-archive"></i>
+                <div class="auth-logo-text">
+                    <h1>Arsiparis Setwan</h1>
+                    <p>Tulungagung</p>
+                </div>
+            </div>
+            <div class="auth-left-content">
+                <h2>Selamat Datang</h2>
+                <p>Sistem Manajemen Arsip Digital Setwan Tulungagung. Akses dan kelola arsip dengan mudah dan aman.</p>
+                <div class="auth-features">
+                    <div class="auth-feature">
+                        <i class="fas fa-shield-alt"></i>
+                        <div>
+                            <h4>Aman dan Terpercaya</h4>
+                            <p>Data arsip terlindungi dengan sistem keamanan terbaik</p>
+                        </div>
+                    </div>
+                    <div class="auth-feature">
+                        <i class="fas fa-bolt"></i>
+                        <div>
+                            <h4>Akses Cepat</h4>
+                            <p>Temukan arsip yang Anda butuhkan dalam hitungan detik</p>
+                        </div>
+                    </div>
+                    <div class="auth-feature">
+                        <i class="fas fa-chart-line"></i>
+                        <div>
+                            <h4>Analitik Lengkap</h4>
+                            <p>Pantau statistik dan aktivitas arsip secara real-time</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="auth-right">
+            <div class="auth-form-container">
+                <div class="auth-tabs">
+                    <div class="auth-tab active" id="loginTab">Masuk</div>
+                    <div class="auth-tab" id="registerTab">Daftar</div>
+                </div>
+
+                <!-- Login Form -->
+                <div class="auth-form active" id="loginForm">
+                    <h2 class="form-title">Masuk ke Akun</h2>
+                    <p class="form-subtitle">Selamat datang kembali! Silakan masuk ke akun Anda</p>
+
+                    <div class="alert alert-error" id="loginError"></div>
+                    <div class="alert alert-success" id="loginSuccess"></div>
+
+                    <form id="loginFormElement">
+                        <div class="form-group">
+                            <label for="loginUsername">Username atau Email</label>
+                            <input type="text" id="loginUsername" class="form-control" placeholder="Masukkan username atau email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="loginPassword">Kata Sandi</label>
+                            <input type="password" id="loginPassword" class="form-control" placeholder="Masukkan kata sandi" required>
+                            <span class="password-toggle" id="loginPasswordToggle">
+                                <i class="fas fa-eye"></i>
+                            </span>
+                        </div>
+                        <div class="form-options">
+                            <label class="remember-me">
+                                <input type="checkbox" id="rememberMe">
+                                Ingat Saya
+                            </label>
+                            <a href="#" class="forgot-password">Lupa Kata Sandi?</a>
+                        </div>
+                        <button type="submit" class="auth-button" id="loginButton">
+                            <span>Masuk</span>
+                            <div class="spinner" id="loginSpinner"></div>
+                        </button>
+                    </form>
+
+          
+                    <div class="auth-switch">
+                        Belum punya akun? <a href="#" id="switchToRegister">Daftar di sini</a>
+                    </div>
+                </div>
+
+                <!-- Register Form -->
+                <div class="auth-form" id="registerForm">
+                    <h2 class="form-title">Buat Akun Baru</h2>
+                    <p class="form-subtitle">Daftar untuk mengakses sistem arsip digital</p>
+
+                    <div class="alert alert-error" id="registerError"></div>
+                    <div class="alert alert-success" id="registerSuccess"></div>
+
+                    <form id="registerFormElement">
+                        <div class="form-group">
+                            <label for="registerFullName">Nama Lengkap</label>
+                            <input type="text" id="registerFullName" class="form-control" placeholder="Masukkan nama lengkap" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="registerEmail">Email</label>
+                            <input type="email" id="registerEmail" class="form-control" placeholder="Masukkan alamat email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="registerUsername">Username</label>
+                            <input type="text" id="registerUsername" class="form-control" placeholder="Buat username unik" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="registerPassword">Kata Sandi</label>
+                            <input type="password" id="registerPassword" class="form-control" placeholder="Buat kata sandi yang kuat" required>
+                            <span class="password-toggle" id="registerPasswordToggle">
+                                <i class="fas fa-eye"></i>
+                            </span>
+                        </div>
+                        <div class="form-group">
+                            <label for="registerConfirmPassword">Konfirmasi Kata Sandi</label>
+                            <input type="password" id="registerConfirmPassword" class="form-control" placeholder="Ulangi kata sandi" required>
+                        </div>
+                        <div class="form-options">
+                            <label class="remember-me">
+                                <input type="checkbox" id="agreeTerms" required>
+                                Saya setuju dengan <a href="#" style="color: var(--primary);">Syarat dan Ketentuan</a>
+                            </label>
+                        </div>
+                        <button type="submit" class="auth-button" id="registerButton">
+                            <span>Daftar</span>
+                            <div class="spinner" id="registerSpinner"></div>
+                        </button>
+                    </form>
+
+                    
+
+                    <div class="auth-switch">
+                        Sudah punya akun? <a href="#" id="switchToLogin">Masuk di sini</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../Js/Login_Register.js"></script>
+</body>
+</html>
