@@ -524,4 +524,22 @@
         @keyframes spin {
             to { transform: rotate(360deg); }
         }
-  
+                .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            margin-bottom: 20px;
+            transition: color 0.3s ease;
+        }
+
+        .back-button i {
+            font-size: 1rem;
+        }
+
+        .back-button:hover {
+            color: #1E7FE0; /* lebih gelap saat hover */
+        }
