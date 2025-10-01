@@ -213,13 +213,15 @@ function logout() {
     showLoadingIndicator();
     
     setTimeout(() => {
-        // Hapus data sesi
-        localStorage.removeItem('userToken');
-        localStorage.removeItem('userData');
-        sessionStorage.clear();
+        // Hapus data sesi yang dipakai di Login_Register.js
+        localStorage.removeItem('arsiparis_currentUser');
+        localStorage.removeItem('arsiparis_rememberMe');
         
+        // Kalau mau sekalian bersihkan semua session:
+        // sessionStorage.clear();
+
         // Redirect ke halaman login
-        window.location.href = "../index.html";
+        window.location.href = "../Html/Login_Register.html";
     }, 1000);
 }
 
@@ -232,5 +234,13 @@ document.addEventListener('DOMContentLoaded', function() {
             e.preventDefault();
             showLogoutConfirmation();
         });
+    }
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Cek apakah user sudah login
+    const currentUser = JSON.parse(localStorage.getItem('arsiparis_currentUser'));
+    if (!currentUser) {
+        window.location.href = "../Html/Login_Register.html";
     }
 });

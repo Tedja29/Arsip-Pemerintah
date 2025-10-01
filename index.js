@@ -65,3 +65,11 @@
                 }
             });
         });
+
+        document.addEventListener('DOMContentLoaded', function() {
+    const currentUser = JSON.parse(localStorage.getItem('arsiparis_currentUser'));
+    if (currentUser) {
+        // window.location.href = "./Html/Dashboard.html"; 
+        // kalau mau auto redirect
+    }
+});
