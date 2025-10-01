@@ -58,90 +58,7 @@
                 }, 500);
             });
         });
-        // Fungsi Logout
-        function logout() {
-            // Tampilkan konfirmasi logout
-            const confirmLogout = confirm("Apakah Anda yakin ingin keluar dari sistem?");
-            
-            if (confirmLogout) {
-                // Simulasi proses logout
-                console.log("Proses logout dimulai...");
-                
-                // Tampilkan loading indicator (opsional)
-                showLoadingIndicator();
-                
-                // Simulasi delay untuk proses server
-                setTimeout(() => {
-                    // Hapus data sesi/token dari localStorage (jika ada)
-                    localStorage.removeItem('userToken');
-                    localStorage.removeItem('userData');
-                    
-                    // Redirect ke halaman login
-                    window.location.href = "Login.html";
-                }, 1000);
-            }
-        }
 
-        // Fungsi untuk menampilkan loading indicator
-        function showLoadingIndicator() {
-            // Buat elemen loading
-            const loadingDiv = document.createElement('div');
-            loadingDiv.id = 'logoutLoading';
-            loadingDiv.innerHTML = `
-                <div style="
-                    position: fixed;
-                    top: 0;
-                    left: 0;
-                    width: 100%;
-                    height: 100%;
-                    background: rgba(0,0,0,0.7);
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    z-index: 9999;
-                    color: white;
-                    font-size: 18px;
-                ">
-                    <div style="text-align: center;">
-                        <i class="fas fa-spinner fa-spin" style="font-size: 40px; margin-bottom: 10px;"></i>
-                        <p>Sedang logout...</p>
-                    </div>
-                </div>
-            `;
-            
-            document.body.appendChild(loadingDiv);
-        }
-
-        // Event listener untuk link logout
-        document.addEventListener('DOMContentLoaded', function() {
-            const logoutLink = document.getElementById('logoutLink');
-            
-            if (logoutLink) {
-                logoutLink.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    logout();
-                });
-            }
-            
-            // Tambahkan juga event listener untuk dropdown user info
-            const userInfoToggle = document.querySelector('.user-info-toggle');
-            const dropdownMenu = document.querySelector('.dropdown-menu');
-            
-            if (userInfoToggle && dropdownMenu) {
-                userInfoToggle.addEventListener('click', function() {
-                    dropdownMenu.classList.toggle('show');
-                });
-                
-                // Tutup dropdown ketika klik di luar
-                document.addEventListener('click', function(e) {
-                    if (!userInfoToggle.contains(e.target) && !dropdownMenu.contains(e.target)) {
-                        dropdownMenu.classList.remove('show');
-                    }
-                });
-            }
-        });
-        // Close mobile menu when clicking a link (if applicable)
-        // Fungsi untuk menampilkan modal konfirmasi logout
 function showLogoutConfirmation() {
     // Buat modal konfirmasi
     const modal = document.createElement('div');
@@ -193,51 +110,43 @@ function showLogoutConfirmation() {
             </div>
         </div>
     `;
-    
+
     document.body.appendChild(modal);
-    
-    // Event listener untuk tombol
+
+    // Tombol batal
     document.getElementById('cancelLogout').addEventListener('click', function() {
         document.body.removeChild(modal);
     });
-    
+
+    // Tombol konfirmasi
     document.getElementById('confirmLogout').addEventListener('click', function() {
         document.body.removeChild(modal);
-        logout();
+        doLogout();
     });
 }
 
-// Ganti fungsi logout utama
-function logout() {
+// Fungsi utama logout
+function doLogout() {
     console.log("Proses logout dimulai...");
-    showLoadingIndicator();
-    
-    setTimeout(() => {
-        // Hapus data sesi yang dipakai di Login_Register.js
-        localStorage.removeItem('arsiparis_currentUser');
-        localStorage.removeItem('arsiparis_rememberMe');
-        
-        // Kalau mau sekalian bersihkan semua session:
-        // sessionStorage.clear();
 
-        // Redirect ke halaman login
-        window.location.href = "../Html/Login_Register.html";
-    }, 1000);
+    // Bersihkan data login dari localStorage
+    localStorage.removeItem('arsiparis_currentUser');
+    localStorage.removeItem('arsiparis_rememberMe');
+
+    // Redirect ke halaman login
+    window.location.href = "../Html/Login_Register.html";
 }
 
-// Update event listener untuk menggunakan modal konfirmasi
+// Pasang event listener untuk tombol logout di menu
 document.addEventListener('DOMContentLoaded', function() {
     const logoutLink = document.getElementById('logoutLink');
-    
+
     if (logoutLink) {
         logoutLink.addEventListener('click', function(e) {
             e.preventDefault();
             showLogoutConfirmation();
         });
     }
-});
-
-document.addEventListener('DOMContentLoaded', function() {
     // Cek apakah user sudah login
     const currentUser = JSON.parse(localStorage.getItem('arsiparis_currentUser'));
     if (!currentUser) {
