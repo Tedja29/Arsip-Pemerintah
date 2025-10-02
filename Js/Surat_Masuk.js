@@ -3,18 +3,19 @@
             document.getElementById('sidebar').classList.toggle('active');
         });
 
-        // Toggle dropdown menu
-        document.querySelector('.user-profile').addEventListener('click', function() {
-            this.classList.toggle('active');
-        });
-
-        // Close dropdown when clicking outside
-        document.addEventListener('click', function(event) {
-            const dropdown = document.querySelector('.dropdown');
-            if (!dropdown.contains(event.target)) {
-                dropdown.classList.remove('active');
-            }
-        });
+     // Toggle dropdown menu
+     document.querySelector('.user-profile').addEventListener('click', function(e) {
+         e.stopPropagation(); // biar ga langsung ketutup
+         this.parentElement.classList.toggle('active');
+     });
+     
+     // Close dropdown when clicking outside
+     document.addEventListener('click', function(event) {
+         const dropdown = document.querySelector('.dropdown');
+         if (dropdown && !dropdown.contains(event.target)) {
+             dropdown.classList.remove('active');
+         }
+     });
 
         // Tab functionality
         document.querySelectorAll('.tab').forEach(tab => {
