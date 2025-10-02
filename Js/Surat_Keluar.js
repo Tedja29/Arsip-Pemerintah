@@ -22,3 +22,42 @@
             const randomCount = Math.floor(Math.random() * 5) + 1;
             badge.textContent = randomCount;
         }, 10000);
+// Fungsi untuk membuka modal
+function openModal(modalId) {
+    const modal = document.getElementById(modalId);
+    const body = document.body;
+    
+    modal.classList.add('active');
+    body.classList.add('body-modal-open');
+}
+
+// Fungsi untuk menutup modal
+function closeModal(modalId) {
+    const modal = document.getElementById(modalId);
+    const body = document.body;
+    
+    modal.classList.remove('active');
+    body.classList.remove('body-modal-open');
+}
+
+// Event listener untuk tombol close
+document.addEventListener('DOMContentLoaded', function() {
+    // Tutup modal ketika klik tombol close
+    document.querySelectorAll('.close-btn').forEach(button => {
+        button.addEventListener('click', function() {
+            const modal = this.closest('.modal');
+            if (modal) {
+                closeModal(modal.id);
+            }
+        });
+    });
+    
+    // Tutup modal ketika klik di luar konten modal
+    document.querySelectorAll('.modal').forEach(modal => {
+        modal.addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal(this.id);
+            }
+        });
+    });
+});
